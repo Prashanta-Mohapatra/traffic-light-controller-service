@@ -37,4 +37,9 @@ public class TrafficController {
     public void pause() {
         service.pause();
     }
+
+    @PostMapping("/resume")
+    public void resume() {
+        service.resume();
+    }
 }

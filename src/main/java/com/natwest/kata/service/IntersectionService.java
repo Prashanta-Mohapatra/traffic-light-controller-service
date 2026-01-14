@@ -50,6 +50,11 @@ public class IntersectionService {
         record("SYSTEM PAUSED");
     }
 
+    public synchronized void resume() {
+        paused = false;
+        record("SYSTEM RESUMED");
+    }
+
     private void ensureNotPaused() {
         if (paused) {
             throw new IllegalStateException("System is paused");
