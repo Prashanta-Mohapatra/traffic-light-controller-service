@@ -1,2 +1,18 @@
-# traffic-light-controller-service
-A Spring Boot–based REST API to control traffic lights at an intersection, supporting multiple directions, safe state transitions, timing history, and concurrency-safe operations.
+
+# Traffic Light Controller Kata
+
+## Assumptions
+- Single intersection
+- Two directions: NORTH_SOUTH and EAST_WEST
+- In-memory state and history
+
+## Design
+- State machine enforced inside TrafficLight
+- Conflict rules enforced centrally in IntersectionController
+- Thread-safety via synchronized methods
+
+## Run
+mvn spring-boot:run
+
+## Test
+mvn test
