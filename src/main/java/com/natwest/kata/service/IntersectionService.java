@@ -45,6 +45,11 @@ public class IntersectionService {
         record(direction + " -> RED");
     }
 
+    public synchronized void pause() {
+        paused = true;
+        record("SYSTEM PAUSED");
+    }
+
     private void ensureNotPaused() {
         if (paused) {
             throw new IllegalStateException("System is paused");

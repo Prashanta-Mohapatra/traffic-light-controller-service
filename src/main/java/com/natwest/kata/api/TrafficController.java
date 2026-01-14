@@ -32,4 +32,9 @@ public class TrafficController {
     public void red(@PathVariable Direction direction) {
         service.red(direction);
     }
+
+    @PostMapping("/pause")
+    public void pause() {
+        service.pause();
+    }
 }
