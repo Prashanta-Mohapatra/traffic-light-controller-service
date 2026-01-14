@@ -3,10 +3,7 @@ package com.natwest.kata.api;
 
 import com.natwest.kata.model.Direction;
 import com.natwest.kata.service.IntersectionService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/traffic")
@@ -41,5 +38,10 @@ public class TrafficController {
     @PostMapping("/resume")
     public void resume() {
         service.resume();
+    }
+
+    @GetMapping("/state")
+    public Object state() {
+        return service.currentState();
     }
 }

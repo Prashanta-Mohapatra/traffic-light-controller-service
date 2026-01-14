@@ -55,6 +55,12 @@ public class IntersectionService {
         record("SYSTEM RESUMED");
     }
 
+    public Map<Direction, LightState> currentState() {
+        Map<Direction, LightState> state = new EnumMap<>(Direction.class);
+        lights.forEach((k, v) -> state.put(k, v.getState()));
+        return state;
+    }
+
     private void ensureNotPaused() {
         if (paused) {
             throw new IllegalStateException("System is paused");
