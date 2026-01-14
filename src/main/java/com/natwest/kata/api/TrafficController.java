@@ -44,4 +44,9 @@ public class TrafficController {
     public Object state() {
         return service.currentState();
     }
+
+    @GetMapping("/history")
+    public Object history() {
+        return service.history();
+    }
 }

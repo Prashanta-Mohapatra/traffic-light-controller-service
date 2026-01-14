@@ -61,6 +61,10 @@ public class IntersectionService {
         return state;
     }
 
+    public List<String> history() {
+        return history;
+    }
+
     private void ensureNotPaused() {
         if (paused) {
             throw new IllegalStateException("System is paused");
