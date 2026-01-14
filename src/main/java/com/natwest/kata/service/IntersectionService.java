@@ -40,6 +40,11 @@ public class IntersectionService {
         record(direction + " -> YELLOW");
     }
 
+    public synchronized void red(Direction direction) {
+        lights.get(direction).toRed();
+        record(direction + " -> RED");
+    }
+
     private void ensureNotPaused() {
         if (paused) {
             throw new IllegalStateException("System is paused");

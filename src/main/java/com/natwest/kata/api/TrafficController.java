@@ -28,4 +28,8 @@ public class TrafficController {
         service.yellow(direction);
     }
 
+    @PostMapping("/red/{direction}")
+    public void red(@PathVariable Direction direction) {
+        service.red(direction);
+    }
 }
