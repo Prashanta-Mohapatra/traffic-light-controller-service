@@ -1,18 +1,29 @@
+# Traffic Light Controller Service Kata
 
-# Traffic Light Controller Kata
+## Overview
+This project implements a simple **Traffic Light Controller API** for an intersection.  
+The purpose of this kata is not to build a fully production-ready traffic system, but to demonstrate **clear design thinking**, **domain modelling**, and **test-driven reasoning** within a limited timebox.
+
+The application exposes REST endpoints to control traffic light states, pause or resume the system, and retrieve the current state and change history.
+
+---
 
 ## Assumptions
-- Single intersection
-- Two directions: NORTH_SOUTH and EAST_WEST
-- In-memory state and history
+To keep the solution focused and readable, the following assumptions were made:
 
-## Design
-- State machine enforced inside TrafficLight
-- Conflict rules enforced centrally in IntersectionController
-- Thread-safety via synchronized methods
+- A **single intersection** is modelled
+- Two directions are supported:
+    - `NORTH_SOUTH`
+    - `EAST_WEST`
+- Traffic light state and history are maintained **in memory**
+- No persistence or external systems are involved
+- Light changes are **command-driven** (no automatic timers)
 
-## Run
-mvn spring-boot:run
+These assumptions were chosen intentionally to prioritise **simplicity and clarity**.
 
-## Test
-mvn test
+---
+
+## Domain Model and Design
+- Each direction is represented by a `TrafficLight`
+- `TrafficLight` behaves as a **state machine**, enforcing valid transitions only:
+
